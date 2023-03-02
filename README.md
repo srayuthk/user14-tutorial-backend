@@ -16,7 +16,7 @@ Create solution project
 dotnet new sln -n Tutorial-Api2
 ```
 
-Create ASP.NET Web Api project
+Create ASP.NET Web Api projectff
 
 ```ps
 dotnet new webapi -o Api
