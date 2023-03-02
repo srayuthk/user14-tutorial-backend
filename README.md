@@ -13,7 +13,7 @@ more : https://dotnet.microsoft.com/en-us/learn/aspnet/what-is-aspnet
 Create solution project
 
 ```ps
-dotnet new sln -n Tutorial-Api
+dotnet new sln -n Tutorial-Api2
 ```
 
 Create ASP.NET Web Api project
