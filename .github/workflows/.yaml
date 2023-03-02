@@ -51,7 +51,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'C#' ]
+        language: [ 'csharp' ]
 
     steps:
     - name: Checkout repository
@@ -65,7 +65,6 @@ jobs:
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
 
-
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 
@@ -73,22 +72,24 @@ jobs:
     # - name: Quality Gate Check
     #   uses: <owner>/quality-gate-action@main
     #   with:
-    #     repository: <owner>/<this-repos-name>
+    #     repository: <owner>/xxx-xxxxxx
     #     severity: high
     #   env:
     #     GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+
   repo-dispatch:
     name: Repository Dispatch
     runs-on: ubuntu-latest
     needs: [unitest,analyze]
     environment:
       name: dev
-      url: https://github.com/srayuthk/user14-pipeline/actions/workflows/dev-tutorial-backend-deploy.yml
+      url: https://github.com/srayuthk/user14-tutorial-backend/actions/workflows/dev-tutorial-backend-deploy.yml
+
     steps:
     - name: Repository Dispatch
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.WORKFLOW_TOKEN }}
-        repository: srayuthk/user14-pipeline
-        event-type: user14-tutorial-be-cd-dev
+        repository: srayuthk/srayuthk-pipeline
+        event-type: srayuthk-tutorial-backend-cd-dev
         client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
