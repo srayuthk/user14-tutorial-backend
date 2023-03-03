@@ -90,6 +90,6 @@ jobs:
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.WORKFLOW_TOKEN }}
-        repository: srayuthk/srayuthk-pipeline
-        event-type: srayuthk-tutorial-backend-cd-dev
+        repository: srayuthk/user14-pipeline
+        event-type: user14-tutorial-backend
         client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
