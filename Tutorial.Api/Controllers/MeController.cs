@@ -25,7 +25,7 @@ namespace Tutorial.Api.Controllers
         public async Task<ContentResult> Message(){
             return new ContentResult{
                 ContentType = "text/html",
-                Content = await HttpRequestAsync("") + " <b>Dotnet Tutorial Backend v0.0.1</b>"
+                Content = await HttpRequestAsync("https://github.com/srayuthk/srayuthk.github.io/blob/main/index.html") + " <b>Dotnet Tutorial Backend v1.0.1</b>"
             };
         }   
 
